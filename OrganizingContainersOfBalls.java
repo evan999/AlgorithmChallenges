@@ -21,21 +21,27 @@ class Result {
 
 	public static String organizingContainers(List<List<Integer>> container) {
 		// Write your code here
-		// int ballTypes = container.get(0).size();
-		// System.out.println(ballTypes);
+
+		int ballTypes = container.get(0).size();
+
 		List<Integer> capacities = new ArrayList<>();
 		List<Integer> ballTotals = new ArrayList<>();
 
-		for (int bin = 0; bin < container.size(); bin++) {
+		for (int bucket = 0; bucket < container.size(); bucket++) {
+
 			int capacity = 0;
 			int ballTotal = 0;
-			for (int ballType = 0; ballType < container.get(bin).size(); ballType++) {
-				ballTotal += container.get(bin).get(ballType);
-				capacity += container.get(ballType).get(bin);
-				ballTotals.add(ballTotal);
-				capacities.add(capacity);
+
+			for (int ballType = 0; ballType < container.get(bucket).size(); ballType++) {
+				capacity += container.get(bucket).get(ballType);
+				ballTotal += container.get(ballType).get(bucket);
 			}
+			capacities.add(capacity);
+			ballTotals.add(ballTotal);
 		}
+
+		System.out.println(capacities);
+		System.out.println(ballTotals);
 
 		Collections.sort(ballTotals);
 		Collections.sort(capacities);
