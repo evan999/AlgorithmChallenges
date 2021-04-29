@@ -40,9 +40,6 @@ class Result {
 			ballTotals.add(ballTotal);
 		}
 
-		System.out.println(capacities);
-		System.out.println(ballTotals);
-
 		Collections.sort(ballTotals);
 		Collections.sort(capacities);
 
