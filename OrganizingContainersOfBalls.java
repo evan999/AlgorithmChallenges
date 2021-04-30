@@ -22,13 +22,19 @@ class Result {
 	public static String organizingContainers(List<List<Integer>> container) {
 		// Write your code here
 
+		// Get the number of ball types in the buckets.
 		int ballTypes = container.get(0).size();
-
+		// System.out.println(ballTypes);
 		List<Integer> capacities = new ArrayList<>();
 		List<Integer> ballTotals = new ArrayList<>();
 
-		for (int bucket = 0; bucket < container.size(); bucket++) {
+		// Could convert these two lists into a hashmap
+		// Map<Integer, Integer> balls = new HashMap<>();
 
+		for (int bucket = 0; bucket < container.size(); bucket++) {
+			// Count the balls in the bucket to get the max bucket size.
+			// Note we can only swap balls, not remove or add to the existing total
+			// So total remains the same no matter what swaps take place!
 			int capacity = 0;
 			int ballTotal = 0;
 
@@ -45,9 +51,9 @@ class Result {
 
 		if (ballTotals.equals(capacities)) {
 			return "Possible";
-		} else {
-			return "Impossible";
 		}
+
+		return "Impossible";
 	}
 
 }
